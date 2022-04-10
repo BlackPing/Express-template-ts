@@ -38,5 +38,6 @@ npm i @types/jsonwebtoken --dev
 
 ## version - 0.0.2v
  - Router Set 버그 fix1
+ - Jwt Service Temp 추가
 
 by - bug_ping@naver.com

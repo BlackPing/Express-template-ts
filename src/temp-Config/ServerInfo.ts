@@ -33,15 +33,16 @@ const obj: ServerInfo = {
                     let API_URL;
                     let RestAPI_URL;
                     let Router_JS;
-                    console.log('# Detecting Directory:', fileList.length, '#');
+                    console.log('# Detecting File:', fileList.length, '#');
                     for(let i = 0; i < fileList.length; i++) {
                         API_URL = path.substring(path.lastIndexOf('Router') + 6, path.length);
-                        if(-1 === fileList[i].indexOf('.js')) { // js 파일이 아닐 경우 다시 디텍팅
+                        if(-1 === fileList[i].indexOf('.js') && -1 === fileList[i].indexOf('.ts')) { // js 파일이 아닐 경우 다시 디텍팅
                             this.setAPI(app, _path.join(API_URL, fileList[i]));
-                        } else if(-1 < fileList[i].indexOf('.js')) { // js 파일이라면 라우팅 use
-                            RestAPI_URL = `${url}/${fileList[i].substring(0, fileList[i].indexOf('.js'))}`;
+                        } else if(-1 < fileList[i].indexOf('.js') || -1 < fileList[i].indexOf('.ts')) { // js 파일이라면 라우팅 use
+                            const type = -1 < fileList[i].indexOf('.js') ? '.js' : '.ts';
+                            RestAPI_URL = `${url}/${fileList[i].substring(0, fileList[i].indexOf(type))}`;
                             RestAPI_URL = RestAPI_URL.replaceAll('\\', '/');
-                            Router_JS = `.${RestAPI_URL}.js`;
+                            Router_JS = `.${RestAPI_URL}${type}`;
                             Router_JS = Router_JS.replaceAll('\\', '/');
                             console.log('App Router ::', RestAPI_URL, ', File Load ::', Router_JS);
                             //console.log(_path.join(rootPath, this.RouterPath, Router_JS));
