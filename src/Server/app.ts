@@ -49,19 +49,6 @@ ServerInfo.setAPI(app, '').then(() => {
 			});
 	});
 	
-	
-	// app.post('/test', (req, res) => {
-	// 	var array = [];
-	// 	var object = {};
-	
-	// 	object.name = "testman";
-	// 	object.age = 27;
-	
-	// 	array.push(object);
-	
-	// 	res.send(JSON.stringify(array));
-	// });
-	
 	app.get('/test3', (req, res) => {
 		res.send('Hello World!2');
 	});

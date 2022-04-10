@@ -36,4 +36,7 @@ npm i @types/jsonwebtoken --dev
  - API 라우팅 처리
  - JS → Typescript 포팅
 
+## version - 0.0.2v
+ - Router Set 버그 fix1
+
 by - bug_ping@naver.com
