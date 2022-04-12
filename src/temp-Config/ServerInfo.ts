@@ -41,11 +41,10 @@ const obj: ServerInfo = {
                         } else if(-1 < fileList[i].indexOf('.js') || -1 < fileList[i].indexOf('.ts')) { // js 파일이라면 라우팅 use
                             const type = -1 < fileList[i].indexOf('.js') ? '.js' : '.ts';
                             RestAPI_URL = `${url}/${fileList[i].substring(0, fileList[i].indexOf(type))}`;
-                            RestAPI_URL = RestAPI_URL.replaceAll('\\', '/');
+                            RestAPI_URL = RestAPI_URL.split('\\').join('/');
                             Router_JS = `.${RestAPI_URL}${type}`;
-                            Router_JS = Router_JS.replaceAll('\\', '/');
+                            Router_JS = Router_JS.split('\\').join('/');
                             console.log('App Router ::', RestAPI_URL, ', File Load ::', Router_JS);
-                            //console.log(_path.join(rootPath, this.RouterPath, Router_JS));
                             app.use(RestAPI_URL, require(_path.join(rootPath, this.RouterPath, Router_JS)));
                         }
                     }

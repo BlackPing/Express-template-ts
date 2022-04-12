@@ -15,21 +15,6 @@ ServerInfo.setAPI(app, '').then(() => {
 	app.use(bodyParser.json());
 	app.use(cookieParser());
 	
-	const token = jwt.sign({
-		data: 'foobar'
-	}, 'secret', { expiresIn: '10s' });
-	
-	console.log(token);
-	
-	const decoded = jwt.verify(token, 'secret');
-	console.log('decoded', decoded);
-	
-	// setInterval(() => {
-	//   jwt.verify(token, 'secret', function(err, decoded) {
-	//     console.log(decoded) // bar
-	//   });
-	// }, 1500);
-	
 	console.time('Server On Time');
 	
 	app.use('*', (req, res, next) => {

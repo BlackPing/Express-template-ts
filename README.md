@@ -20,6 +20,9 @@ npm i @types/node --dev
 npm i @types/cookie-parser --dev
 npm i @types/express --dev
 npm i @types/jsonwebtoken --dev
+npm i esbuild --dev
+npm i esbuild-node-tsc --dev
+
 ```
 
 # Quick Start
@@ -39,5 +42,9 @@ npm i @types/jsonwebtoken --dev
 ## version - 0.0.2v
  - Router Set 버그 fix1
  - Jwt Service Temp 추가
+
+## version - 0.0.3v
+ - replaceAll 제거 split, join으로 변경
+ - esbuild 추가
 
 by - bug_ping@naver.com
