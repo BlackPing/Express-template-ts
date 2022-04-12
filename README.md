@@ -46,5 +46,6 @@ npm i esbuild-node-tsc --dev
 ## version - 0.0.3v
  - replaceAll 제거 split, join으로 변경
  - esbuild 추가
+ - nodemon 세팅
 
 by - bug_ping@naver.com

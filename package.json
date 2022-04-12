@@ -6,6 +6,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "etsc",
     "start": "node .",
+    "dev": "nodemon",
     "start-dev": "nodemon --exec npx ts-node ./src/Server/app.ts"
   },
   "keywords": [],
