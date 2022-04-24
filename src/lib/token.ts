@@ -1,6 +1,6 @@
 import express, { Request } from 'express';
 import jwt from 'jsonwebtoken';
-import secret from '../Config/Secret';
+import { Secret } from '../Config/Secret';
 
 class JwtService {
 	static getUserIdFromRequest = (req: Request): string | null => {
@@ -25,7 +25,7 @@ class JwtService {
 	// 토큰을 decode 해주는 함수
 	static decodeJWT = (token: string) => {
 		try {
-			const decodedToken = jwt.verify(token, secret)
+			const decodedToken = jwt.verify(token, Secret.jwtSecret)
 			return decodedToken;
 		} catch {
 			return null;
@@ -36,7 +36,7 @@ class JwtService {
 	static createJWT = async (user: string): Promise<string> => {
 		const token = jwt.sign(
 			{ _id: user },
-			secret,
+			Secret.jwtSecret,
 			{ expiresIn: '5m' }
 		);
 		return token;
